@@ -4,6 +4,8 @@ import Home from "./page/Home/index.jsx";
 import List from "./page/List/index.jsx";
 import Detail from "./page/Detail/index.jsx";
 import Form from "./page/Form/index.jsx";
+import Main from "./component/Main/index.jsx";
+import MoreDetail from "./component/MoreDetail/index.jsx";
 
 function App() {
 
@@ -36,7 +38,14 @@ function App() {
         <Routes>
           <Route path={'/'} element={<Home />} />
           <Route path={'/list'} element={<List />} />
-          <Route path={'/list/:postID'} element={<Detail />} />
+
+
+            <Route path={'/list'} element={<Detail />}>
+                <Route path={':postID'} element={<Main />} />
+                <Route path={':postID/detail'} element={<MoreDetail />} />
+            </Route>
+
+
           <Route path={'/form'} element={<Form />} />
 
           <Route path={'*'} element={<div>Not found</div>} />
