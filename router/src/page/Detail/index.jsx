@@ -1,13 +1,19 @@
 // path: router/src/page/Detail/index.jsx
-import {useParams} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
+import {usePostContext} from "../../PostContext.jsx";
 
 const Detail = () => {
 
-    const {article} = useParams()
+    const location = useLocation()
+    console.log(location)
+    const article = location.state
+
 
     return (
         <>
-            L'id de l'article est : {article}
+            Titre de l'article : {article.title}
+            <br />
+            contenu de l'article : {article.content}
         </>
     )
 }
