@@ -1,3 +1,5 @@
+import {POST_ADD_POST, POST_SET_VALUE} from "../action-type/index.js";
+
 const initialState = {
     post: {
         title: '',
@@ -13,7 +15,7 @@ const initialState = {
 const postReducer = (state = initialState, action) => {
     switch (action.type) {
 
-        case 'SET_VALUE':
+        case POST_SET_VALUE:
             return {
                 ...state,
                 post: {
@@ -22,7 +24,7 @@ const postReducer = (state = initialState, action) => {
                 }
             }
 
-        case 'ADD_POST':
+        case POST_ADD_POST:
             return {
                 ...state,
                 posts: state.posts.concat([{...state.post, id: Date.now()}]),

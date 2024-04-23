@@ -1,20 +1,19 @@
 // path: router/src/page/Form/index.jsx
 import {useDispatch, useSelector} from "react-redux";
+import {selectCount, selectPost} from "../../store/selector/index.js";
+import {setPostValue} from "../../store/action/index.js";
 
 const Form = () => {
 
-    const post = useSelector(state => state.post)
+    const post = useSelector(selectPost)
     const dispatch = useDispatch()
 
+    const count = useSelector(selectCount)
+
+    console.log(count)
     const handleChange = (e) => {
         const {name, value} = e.target
-        dispatch({
-            type: 'SET_VALUE',
-            payload: {
-                name,
-                value
-            }
-        })
+        dispatch(setPostValue({name, value}))
     }
 
     const handleSubmit = (e) => {
