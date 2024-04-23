@@ -2,12 +2,13 @@
 import "./home.scss";
 
 import {useSelector} from "react-redux";
-import {selectDragons} from "../../store/selector/index.js";
+import {selectDragons, selectKnights} from "../../store/selector/index.js";
 import ListItem from "../../component/ListItem/index.jsx";
 
 const HomePage = () => {
 
     const dragons = useSelector(selectDragons)
+    const knights = useSelector(selectKnights)
 
     return <div className={'page homePage'}>
         <div>
@@ -25,9 +26,12 @@ const HomePage = () => {
             <h2>Knight's list</h2>
             <div className="listContainer knightList">
                 {
-                    // List goes here
+                    knights.length > 0 ?
+                        knights.map(knight => <ListItem key={knight.id} item={knight}/>)
+                        :
+                        <span>Oups, no knight listed</span>
                 }
-                <span>Oups, no knight listed</span>
+
             </div>
         </div>
     </div>
