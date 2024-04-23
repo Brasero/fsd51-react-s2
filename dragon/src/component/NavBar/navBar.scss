@@ -1,0 +1,21 @@
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  h1 {
+    font-size: 2rem;
+    text-transform: capitalize;
+    text-decoration: underline;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .active {
+    color: orange;
+  }
+}

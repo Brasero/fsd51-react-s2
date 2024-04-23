@@ -14,7 +14,8 @@ const initialState = {
 
 const postReducer = (state = initialState, action) => {
     switch (action.type) {
-
+        // En Redux, on utilise des constantes (appelée action-type)
+        // pour définir nos case (voir ../action-type/index.js)
         case POST_SET_VALUE:
             return {
                 ...state,
