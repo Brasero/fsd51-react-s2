@@ -29,7 +29,7 @@ const AddDragonPage = () => {
 
 
 
-    return <div className={'formPage'}>
+    return <div className={'formPage page'}>
         <div className="form">
             <input type={'text'} onChange={handleChange} name={'name'} value={dragon.name} placeholder={'Dragon\'s name'} />
             <input type="text" onChange={handleChange} name={'age'} value={dragon.age} placeholder={"Dragon's age"}/>

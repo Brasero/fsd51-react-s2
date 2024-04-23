@@ -1,0 +1,20 @@
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 200px;
+  border: 1px solid white;
+  border-radius: 7px;
+  padding: 5px 10px;
+  gap: 30px;
+
+  & > span:first-of-type {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+  }
+
+  & > span:last-of-type {
+    font-size: .9rem;
+    font-weight: bold;
+  }
+}

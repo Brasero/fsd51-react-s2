@@ -4,6 +4,7 @@ import MainTemplate from "./component/template/MainTemplate/index.jsx";
 import NotFoundPage from "./page/NotFound/index.page.jsx";
 import HomePage from "./page/Home/index.page.jsx";
 import AddDragonPage from "./page/AddDragon/index.page.jsx";
+import AddKnightPage from "./page/AddKnight/index.page.jsx";
 
 function App() {
 
@@ -11,7 +12,8 @@ function App() {
     <Routes>
       <Route element={<MainTemplate />}>
         <Route path={'/'} element={ <HomePage /> } />
-        <Route path={'/add'} element={<AddDragonPage />}/>
+        <Route path={'/addDragon'} element={<AddDragonPage />}/>
+        <Route path={"/addKnight"} element={<AddKnightPage />} />
 
         <Route path={'*'} element={<NotFoundPage />} />
       </Route>
