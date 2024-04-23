@@ -3,14 +3,15 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import {BrowserRouter as Router} from "react-router-dom";
-import PostContextProvider from "./PostContext.jsx";
+import {Provider} from "react-redux";
+import store from "./store/index.js";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-        <PostContextProvider>
+    <React.StrictMode>
+        <Provider store={store}>
             <Router>
-                <App />
+                <App/>
             </Router>
-        </PostContextProvider>
-  </React.StrictMode>,
+        </Provider>
+    </React.StrictMode>,
 )

@@ -1,14 +1,16 @@
-import {useReducer} from 'react';
-
 const initialState = {
     post: {
         title: '',
         content: ''
     },
-    posts: []
+    posts: [{
+        id: 1234,
+        title: 'test',
+        content: 'hello'
+    }]
 };
 
-const postReducer = (state, action) => {
+const postReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case 'SET_VALUE':
@@ -35,6 +37,4 @@ const postReducer = (state, action) => {
     }
 };
 
-const usePostReducer = () => useReducer(postReducer, initialState);
-
-export default usePostReducer;
+export default postReducer

@@ -1,9 +1,10 @@
 // path: router/src/page/Form/index.jsx
-import {usePostContext} from "../../PostContext.jsx";
+import {useDispatch, useSelector} from "react-redux";
 
 const Form = () => {
 
-    const {state, dispatch} = usePostContext()
+    const post = useSelector(state => state.post)
+    const dispatch = useDispatch()
 
     const handleChange = (e) => {
         const {name, value} = e.target
@@ -18,7 +19,7 @@ const Form = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (state.post.title.trim() === "" || state.post.content.trim() === '') {
+        if (post.title.trim() === "" || post.content.trim() === '') {
             return
         }
         dispatch({
@@ -28,8 +29,8 @@ const Form = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type={"text"} onChange={handleChange} name={'title'} value={state.post.title} />
-            <textarea name={'content'} onChange={handleChange} value={state.post.content} />
+            <input type={"text"} onChange={handleChange} name={'title'} value={post.title} />
+            <textarea name={'content'} onChange={handleChange} value={post.content} />
             <input type={"submit"} value={'Ajouter'}/>
         </form>
     )
