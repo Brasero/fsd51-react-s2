@@ -1,4 +1,4 @@
-import {useReducer} from 'React';
+import {useReducer} from 'react';
 
 const initialState = {
     post: {
