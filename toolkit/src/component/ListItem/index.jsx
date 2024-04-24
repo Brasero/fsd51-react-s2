@@ -1,6 +1,7 @@
 // path: toolkit/src/component/ListItem/index.jsx
 import {useDispatch} from "react-redux";
 import {toggleCompleted} from "../../store/slice/taskSlice.js";
+import {Link} from "react-router-dom";
 
 const ListItem = ({item}) => {
   
@@ -12,7 +13,7 @@ const ListItem = ({item}) => {
   
   return (
     <div>
-        <span>{item.title}</span>
+        <Link to={`/task/${item.id}`}>{item.title}</Link>
         <input type={"checkbox"} checked={item.completed} onChange={handleChange} />
     </div>
   )

@@ -3,6 +3,7 @@ import {Route, Routes} from "react-router-dom";
 import MainTemplate from "./component/template/MainTemplate/index.jsx";
 import HomePage from "./page/Home/index.page.jsx";
 import AddTaskPage from "./page/AddTask/index.page.jsx";
+import TaskDetailPage from "./page/TaskDetail/index.page.jsx";
 
 function App() {
   
@@ -11,6 +12,7 @@ function App() {
       <Route element={<MainTemplate/>}>
         <Route path={'/'} element={<HomePage/>}/>
         <Route path={'/addTask'} element={<AddTaskPage/>}/>
+        <Route path={'/task/:taskID'} element={<TaskDetailPage />} />
         
         <Route path={'*'} element={<div>Oups, you seems lost</div>}/>
       </Route>

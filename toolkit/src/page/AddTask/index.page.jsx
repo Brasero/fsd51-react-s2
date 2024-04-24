@@ -3,11 +3,16 @@
 import {useDispatch, useSelector} from "react-redux";
 import {selectTask} from "../../store/selector/index.js";
 import {addTask, setTaskValue} from "../../store/slice/taskSlice.js";
+import {useState} from "react";
 
 const AddTaskPage = () => {
   
   const task = useSelector(selectTask)
   const dispatch = useDispatch()
+  const [state, setState] = useState({
+    title: "",
+    content: ""
+  })
   
   const handleChange = (e) => {
     const {name, value} = e.target
