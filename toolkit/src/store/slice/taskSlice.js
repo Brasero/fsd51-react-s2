@@ -40,5 +40,4 @@ export const {
   addTask,
   toggleCompleted
 } = taskSlice.actions
-
 export default taskSlice.reducer
