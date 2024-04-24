@@ -1,30 +1,21 @@
 import './App.css'
-import {useDispatch, useSelector} from "react-redux";
-import {selectCount, selectText} from "./store/selector/index.js";
-import {setMessage} from "./store/slice/messageSlice.js";
-import {increment} from "./store/slice/countSlice.js";
+import {Route, Routes} from "react-router-dom";
+import MainTemplate from "./component/template/MainTemplate/index.jsx";
+import HomePage from "./page/Home/index.page.jsx";
+import AddTaskPage from "./page/AddTask/index.page.jsx";
 
 function App() {
 
-  const text = useSelector(selectText)
-  const dispatch = useDispatch()
-  const count = useSelector(selectCount)
+    return (
+        <Routes>
+            <Route element={<MainTemplate/>}>
+                <Route path={'/'} element={<HomePage/>}/>
+                <Route path={'/addTask'} element={<AddTaskPage/>}/>
 
-  const handleChange = (e) => {
-    const {value} = e.target
-    dispatch(setMessage(value))
-  }
-
-  const handleClick = () => {
-    dispatch(increment())
-  }
-
-  return (
-    <>
-      <input type={"text"} value={text} onChange={handleChange} />
-      <button onClick={handleClick}>{count}</button>
-    </>
-  )
+                <Route path={'*'} element={<div>Oups, you seems lost</div>}/>
+            </Route>
+        </Routes>
+    )
 }
 
 export default App
