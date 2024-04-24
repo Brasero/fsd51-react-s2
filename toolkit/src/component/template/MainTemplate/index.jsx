@@ -3,13 +3,13 @@ import {Outlet} from "react-router-dom";
 import NavBar from "../../NavBar/index.jsx";
 
 const MainTemplate = () => {
-
-    return (
-        <main>
-            <NavBar />
-            <Outlet />
-        </main>
-    )
+  
+  return (
+    <main>
+      <NavBar/>
+      <Outlet/>
+    </main>
+  )
 }
 
 export default MainTemplate
