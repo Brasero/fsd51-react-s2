@@ -1,4 +1,14 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
+import axios from "axios";
+
+export const fetchTasks = createAsyncThunk(
+  'fetchTasks',
+  async () => {
+    const res = await axios.get('https://jsonplaceholder.typicode.com/todos?userId=1')
+    return res.data;
+  }
+)
+
 
 const taskSlice = createSlice({
   name: 'task',
@@ -8,7 +18,8 @@ const taskSlice = createSlice({
       title: '',
       content: "",
       completed: false
-    }
+    },
+    loading: 'idle' // 'idle' | 'loading' | 'error'
   },
   reducers: {
     setTaskValue(state, action) {
@@ -32,12 +43,25 @@ const taskSlice = createSlice({
         }
       })
     }
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchTasks.pending, (state, action) => {
+      state.loading = 'loading'
+    })
+    builder.addCase(fetchTasks.fulfilled, (state, action) => {
+      console.log(action.payload)
+      state.tasks = action.payload
+      state.loading = 'idle'
+    })
+    builder.addCase(fetchTasks.rejected, (state, action) => {
+      state.loading = "error"
+    })
   }
 })
 
 export const {
   setTaskValue,
   addTask,
-  toggleCompleted
+  toggleCompleted,
 } = taskSlice.actions
 export default taskSlice.reducer
