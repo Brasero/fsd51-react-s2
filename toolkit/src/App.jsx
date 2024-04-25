@@ -7,6 +7,9 @@ import TaskDetailPage from "./page/TaskDetail/index.page.jsx";
 import {useEffect} from "react";
 import {fetchTasks} from "./store/slice/taskSlice.js";
 import {useDispatch} from "react-redux";
+import LoginPage from "./page/Login/index.page.jsx";
+import LoggedPage from "./page/Logged/index.page.jsx";
+import PrivateRoute from "./component/PrivateRoute/index.jsx";
 
 function App() {
   const dispatch = useDispatch()
@@ -31,6 +34,8 @@ function App() {
         <Route path={'/'} element={<HomePage/>}/>
         <Route path={'/addTask'} element={<AddTaskPage/>}/>
         <Route path={'/task/:taskID'} element={<TaskDetailPage />} />
+        <Route path={'/login'} element={<LoginPage />} />
+        <Route path={"/logged"} element={<PrivateRoute id={4}><LoggedPage /></PrivateRoute>} />
         
         <Route path={'*'} element={<div>Oups, you seems lost</div>}/>
       </Route>
