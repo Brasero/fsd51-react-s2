@@ -18,10 +18,12 @@ const LogList = () => {
             logs.length > 0 ?
               <ul  style={{
                   maxHeight: '150px',
-                  overflowY: 'scroll'
+                  overflowY: 'scroll',
+                  overflowX: 'hidden',
+                  maxWidth: '70vw'
               }}>
                   {
-                      [...logs].reverse().map(log => <li key={log.id}>
+                      [...logs].reverse().map(log => <li className={'logItem'} key={log.id}>
                           <span>Action : {log.type}</span>
                           {
                               log.payload && <pre>{JSON.stringify(log.payload)}</pre>

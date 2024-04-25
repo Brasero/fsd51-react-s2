@@ -12,9 +12,11 @@ const ListItem = ({item}) => {
   }
   
   return (
-    <div>
-        <Link to={`/task/${item.id}`}>{item.title}</Link>
-        <input type={"checkbox"} checked={item.completed} onChange={handleChange} />
+    <div className={'taskItem'}>
+        <div className={'up'}>
+          <Link to={`/task/${item.id}`}>{item.title}</Link>
+          <input type={"checkbox"} checked={item.completed} onChange={handleChange} />
+        </div>
     </div>
   )
 }

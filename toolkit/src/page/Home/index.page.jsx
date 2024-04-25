@@ -1,16 +1,20 @@
 // path : toolkit/src/page/Home/index.page.jsx
 
 import {useSelector} from "react-redux";
-import {selectLoadingState, selectTasks} from "../../store/selector/index.js";
+import {selectLoadingState, selectTasks, selectFilteredTasks} from "../../store/selector/index.js";
 import ListItem from "../../component/ListItem/index.jsx";
+import PriorityList from "../../component/PriorityList/index.jsx";
+import {useState} from "react";
 
 const HomePage = () => {
   
-  const tasks = useSelector(selectTasks)
   const loadingState = useSelector(selectLoadingState)
+  const [filter, setFilter] = useState('')
+  const tasks = useSelector(selectFilteredTasks(filter))
   
   return <div className={'page'}>
     <h5>Welcome to your task list</h5>
+    <PriorityList filter={filter} setFilter={setFilter} />
     {
       loadingState === "loading" ?
         <div>loading...</div>

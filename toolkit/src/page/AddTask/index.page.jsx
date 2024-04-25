@@ -2,8 +2,9 @@
 
 import {useDispatch, useSelector} from "react-redux";
 import {selectTask} from "../../store/selector/index.js";
-import {addTask, setTaskValue} from "../../store/slice/taskSlice.js";
+import { setTaskValue, addTask} from "../../store/slice/taskSlice.js";
 import {useState} from "react";
+import Priority from "../../component/Priority/index.jsx";
 
 const AddTaskPage = () => {
   
@@ -25,14 +26,16 @@ const AddTaskPage = () => {
     if (task.title.trim() === "") {
       return
     }
-    dispatch(addTask())
+    dispatch(addTask(task))
   }
   
   
   
   return <div className={'page'}>
     <h5>Add a task</h5>
+    <Priority />
     <form onSubmit={handleSubmit} style={{display: "flex", flexDirection: "column", gap: 15}}>
+      
       <input
         type={'text'}
         name={'title'}

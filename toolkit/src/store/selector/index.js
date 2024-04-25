@@ -6,6 +6,13 @@ export const selectTask = state => state.tasks.task;
 
 export const selectTasks = state => state.tasks.tasks;
 
+export const selectFilteredTasks = (filter) => {
+  return state => filter === '' ?
+    state.tasks.tasks
+    :
+    state.tasks.tasks.filter(task => task.userId == filter)
+}
+
 export const selectLogs = state => state.logs.logs;
 
 export const selectLoadingState = state => state.tasks.loading
