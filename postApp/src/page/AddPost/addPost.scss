@@ -1,0 +1,37 @@
+#addPost {
+  width: 100%;
+  h1 {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    color: var(--primary-color);
+  }
+
+  form {
+    width: 100%;
+    margin: 45px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 800px;
+
+    input, textarea {
+      padding: .3rem .4rem;
+    }
+
+    input[type='submit'] {
+      color: white;
+      background: var(--primary-color);
+      border: none;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 1.2rem;
+      transition: all .3s;
+
+      &:disabled {
+        color: black;
+        background: #dfdede;
+      }
+    }
+  }
+}

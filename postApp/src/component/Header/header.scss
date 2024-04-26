@@ -1,0 +1,17 @@
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  background: white;
+  border-bottom: 1px solid var(--primary-color);
+  margin-bottom: 25px;
+
+  .brand {
+    font-size: 2rem;
+    font-family: var(--title-font);
+    letter-spacing: 5px;
+  }
+}
